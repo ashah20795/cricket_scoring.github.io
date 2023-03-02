@@ -69,6 +69,7 @@
 			color: #dc3545;
 			margin-left: 10px;
 		}
+            
 	</style>
 </head>
 <body>
@@ -97,7 +98,6 @@
   <div class="btn-group" role="group">
     <button type="button" class="btn btn-primary" onclick="addRuns(1, 'wide')">Wide</button>
     <button type="button" class="btn btn-primary" onclick="addRuns(1, 'noball')">No Ball</button>
-    <button type="button" class="btn btn-warning" onclick="resetScore()">Reset</button>
     <button type="button" class="btn btn-warning" onclick="undoScore()">Undo</button>  
   </div>
 </div>
@@ -110,11 +110,18 @@
 			<p>Balls: <span id="ball-count">0</span></p>
 			<p>Wickets: <span id="wicket-count">0</span></p>
 			<p>Overs: <span id="over-count">0.0</span></p>
-            <label for="target-score">Target Score:</label>
-<input type="number" id="target-score" name="target-score">
+           <p> <label for="target-score">Target Score:</label>
+            <input type="number" id="target-score" name="target-score"></p>
 		</div>
 	</div>
+      <br>   
 
+<div class="text-center">
+<div class="btn-group" role="group">
+
+    <button type="button" class="btn btn-warning" onclick="resetScore()">Reset</button>
+  </div>
+  </div>
 	<!-- Include Bootstrap JS and jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
