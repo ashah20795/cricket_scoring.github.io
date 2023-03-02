@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Cricket Scoring</title>
+	<title>Frankford Cricket Scoreboard</title>
 	<!-- Include Bootstrap CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     	<style>
@@ -75,7 +75,7 @@
 	<div class="container">
 		
 		<div class="container">
-  <h1>Cricket Scoring</h1>
+  <h1>Frankford Cricket Scoreboard</h1>
 
 <div class="text-center">
   <div class="btn-group" role="group">
@@ -98,6 +98,7 @@
     <button type="button" class="btn btn-primary" onclick="addRuns(1, 'wide')">Wide</button>
     <button type="button" class="btn btn-primary" onclick="addRuns(1, 'noball')">No Ball</button>
     <button type="button" class="btn btn-warning" onclick="resetScore()">Reset</button>
+    <button type="button" class="btn btn-warning" onclick="undoScore()">Undo</button>  
   </div>
 </div>
         
@@ -123,8 +124,15 @@ let runs = 0;
 let balls = 0;
 let wickets = 0;
 let overs = 0;
+let prevScore = {
+  runs: 0,
+  balls: 0,
+  wickets: 0,
+  overs: 0
+};        
 
 function addRuns(numRuns, ballType) {
+  savePrevScore();
   if (ballType == "wide"||ballType == "noball") {
     runs += numRuns;
   } else {
@@ -133,24 +141,45 @@ function addRuns(numRuns, ballType) {
   }
   updateScore();
 }
+
 function addWicket() {
+  savePrevScore();
   wickets++;
   balls++;
   updateScore();
 }
 
-function addBalls(numBalls) {
-  balls += numBalls;
-  updateScore();
-}
-
 function resetScore() {
+  savePrevScore();
+  prevScore = {
+    runs: runs,
+    balls: balls,
+    wickets: wickets,
+    overs: overs
+  };
   runs = 0;
   balls = 0;
   wickets = 0;
   overs = 0;
   updateScore();
 }
+
+function savePrevScore() {
+  prevScore = {
+    runs: runs,
+    balls: balls,
+    wickets: wickets,
+    overs: overs
+  };
+}
+
+function undoScore() {
+  runs = prevScore.runs;
+  balls = prevScore.balls;
+  wickets = prevScore.wickets;
+  overs = prevScore.overs;
+  updateScore();
+}        
 
 function updateScore() {
   let overString = (balls % 6 === 0) ? `${Math.floor(balls/6)}.${balls%6}` : `${Math.floor(balls/6)}.${balls%6}`;
