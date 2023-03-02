@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cricket Scoring</title>
+	<!-- Include Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Cricket Scoring</h1>
+		<div class="btn-group" role="group">
+			<button type="button" class="btn btn-primary" onclick="addRuns(0)">0 Run</button>
+            <button type="button" class="btn btn-primary" onclick="addRuns(1)">1 Run</button>
+			<button type="button" class="btn btn-primary" onclick="addRuns(2)">2 Runs</button>
+			<button type="button" class="btn btn-primary" onclick="addRuns(3)">3 Runs</button>
+			<button type="button" class="btn btn-primary" onclick="addRuns(4)">4 Runs</button>
+			<button type="button" class="btn btn-primary" onclick="addRuns(6)">6 Runs</button>
+			<button type="button" class="btn btn-danger" onclick="addWicket()">Wicket</button>
+		</div>
+		<div class="btn-group" role="group">
+			<button type="button" class="btn btn-primary" onclick="addBalls(1)">+1 Ball</button>
+            <button type="button" class="btn btn-primary" onclick="addRuns(1, 'wide')">Wide</button>
+            <button type="button" class="btn btn-primary" onclick="addRuns(1, 'noball')">No Ball</button>
+			<button type="button" class="btn btn-warning" onclick="resetScore()">Reset</button>
+		</div>
+        
+        
+        
+		<div class="scorecard">
+			<h3>Scorecard</h3>
+			<p>Runs: <span id="score">0</span></p>
+			<p>Balls: <span id="ball-count">0</span></p>
+			<p>Wickets: <span id="wicket-count">0</span></p>
+			<p>Overs: <span id="over-count">0.0</span></p>
+			<p>Run Rate: <span id="run-rate">0.00</span></p>
+		</div>
+	</div>
+
+	<!-- Include Bootstrap JS and jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<script>
+let runs = 0;
+let balls = 0;
+let wickets = 0;
+let overs = 0;
+
+function addRuns(numRuns, ballType) {
+  if (ballType == "wide"||ballType == "noball") {
+    runs += numRuns;
+  } else {
+    runs += numRuns;
+    balls++;
+  }
+  updateScore();
+}
+function addWicket() {
+  wickets++;
+  balls++;
+  updateScore();
+}
+
+function addBalls(numBalls) {
+  balls += numBalls;
+  updateScore();
+}
+
+function resetScore() {
+  runs = 0;
+  balls = 0;
+  wickets = 0;
+  overs = 0;
+  updateScore();
+}
+
+function updateScore() {
+  let overString = (balls % 6 === 0) ? `${Math.floor(balls/6)}.${balls%6}` : `${Math.floor(balls/6)}.${balls%6}`;
+  document.getElementById("score").innerHTML = runs;
+  document.getElementById("ball-count").innerHTML = balls;
+  document.getElementById("wicket-count").innerHTML = wickets;
+  document.getElementById("over-count").innerHTML = overString;
+}
+        
+    </script>
+    </body>
+</html>
+
