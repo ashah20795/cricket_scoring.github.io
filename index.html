@@ -9,15 +9,20 @@
 			background-color: #f8f9fa;
 		}
 		.container {
-			margin-top: 30px;
+			
+              display: flex;
+            flex-direction: column;
+        justify-content: center;
+            align-items: center;
+            height: 70vh;
 		}
 		h1 {
-			font-size: 48px;
+			font-size: 60px;
 			font-weight: bold;
-			margin-bottom: 30px;
+			margin-bottom: 90px;
 			color: #dc3545;
 			text-align: center;
-			text-transform: capitalize;
+			text-transform: uppercase;
 		}
 		.btn-group {
 			margin-bottom: 20px;
@@ -28,6 +33,7 @@
 			font-weight: bold;
 			text-transform: uppercase;
 			margin-right: 10px;
+            font-size: 40px;
 		}
 		.btn-danger {
 			background-color: #dc3545;
@@ -35,6 +41,7 @@
 			font-weight: bold;
 			text-transform: uppercase;
 			margin-right: 10px;
+            font-size: 40px;
 		}
 		.btn-warning {
 			background-color: #ffc107;
@@ -42,15 +49,16 @@
 			font-weight: bold;
 			text-transform: uppercase;
 			margin-right: 10px;
+            font-size: 40px;
 		}
 		.scorecard {
 			background-color: #ffffff;
 			border-radius: 5px;
-			padding: 20px;
+			padding: 40px;
 			box-shadow: 0px 0px 10px #e9ecef;
 		}
 		h3 {
-			font-size: 24px;
+			font-size: 50px;
 			font-weight: bold;
 			margin-bottom: 20px;
 			color: #007bff;
@@ -58,7 +66,7 @@
 			text-transform: uppercase;
 		}
 		p {
-			font-size: 18px;
+			font-size: 35px;
 			font-weight: bold;
 			margin-bottom: 10px;
 			color: #343a40;
@@ -68,8 +76,22 @@
 			font-size: 18px;
 			color: #dc3545;
 			margin-left: 10px;
+            font-size: 35px;
 		}
-            
+         
+        @media screen and (max-width: 767px) {
+	.btn-primary, .btn-danger, .btn-warning {
+		font-size: 29px;
+		padding: 10px 20px;
+	}
+	h1 {
+		font-size: 60px;
+		margin-bottom: 20px;
+	}
+	.scorecard p {
+		font-size: 16px;
+	}
+}    
 	</style>
 </head>
 <body>
@@ -85,24 +107,25 @@
     <button type="button" class="btn btn-primary" onclick="addRuns(2)">2 Runs</button>
   </div>
   <br>
+    <br>
   <div class="btn-group" role="group">
     <button type="button" class="btn btn-primary" onclick="addRuns(3)">3 Runs</button>
     <button type="button" class="btn btn-primary" onclick="addRuns(4)">4 Runs</button>
     <button type="button" class="btn btn-primary" onclick="addRuns(6)">6 Runs</button>
   </div>
   <br>
+    <br>
   <div class="btn-group" role="group">
     <button type="button" class="btn btn-danger" onclick="addWicket()">Wicket</button>
   </div>
-  <br>            
+  <br>  
+    <br>
   <div class="btn-group" role="group">
     <button type="button" class="btn btn-primary" onclick="addRuns(1, 'wide')">Wide</button>
     <button type="button" class="btn btn-primary" onclick="addRuns(1, 'noball')">No Ball</button>
     <button type="button" class="btn btn-warning" onclick="undoScore()">Undo</button>  
   </div>
-</div>
-        
-        
+</div>                
         
 		<div class="scorecard">
 			<h3>Scorecard</h3>
