@@ -14,25 +14,26 @@
             flex-direction: column;
         justify-content: center;
             align-items: center;
-            height: 70vh;
+            height: 80vh;
 		}
 		h1 {
 			font-size: 60px;
 			font-weight: bold;
-			margin-bottom: 90px;
+			margin-bottom: 100px;
 			color: #dc3545;
 			text-align: center;
 			text-transform: uppercase;
 		}
 		.btn-group {
 			margin-bottom: 20px;
+           
 		}
 		.btn-primary {
 			background-color: #007bff;
 			border-color: #007bff;
 			font-weight: bold;
 			text-transform: uppercase;
-			margin-right: 10px;
+			margin-right: 60px;
             font-size: 40px;
 		}
 		.btn-danger {
@@ -52,7 +53,8 @@
             font-size: 40px;
 		}
 		.scorecard {
-			background-color: #ffffff;
+			margin-top: 20px;
+            background-color: #ffffff;
 			border-radius: 5px;
 			padding: 40px;
 			box-shadow: 0px 0px 10px #e9ecef;
@@ -119,13 +121,14 @@
     <button type="button" class="btn btn-danger" onclick="addWicket()">Wicket</button>
   </div>
   <br>  
+
     <br>
   <div class="btn-group" role="group">
     <button type="button" class="btn btn-primary" onclick="addRuns(1, 'wide')">Wide</button>
     <button type="button" class="btn btn-primary" onclick="addRuns(1, 'noball')">No Ball</button>
     <button type="button" class="btn btn-warning" onclick="undoScore()">Undo</button>  
   </div>
-</div>                
+</div> 
         
 		<div class="scorecard">
 			<h3>Scorecard</h3>
